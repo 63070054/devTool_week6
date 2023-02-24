@@ -4,14 +4,22 @@ pipeline {
          stage('pre -build') {
             steps {
                 sh 'echo Pre-build'
-                sh 'python3 --version'
             }
         }
-        stage('build') {
+        stage('first build') {
             steps {
                 
-                echo 'build in progress'
-                sh 'python3  Webhook/main.py'
+                sh 'echo build in progress'
+            }
+        }
+        stage('second build') {
+            steps {
+               sh 'python3  Webhook/main.py'
+            }
+        }
+        stage('build success') {
+            steps {
+               sh 'echo Build Success'
             }
         }
     }
